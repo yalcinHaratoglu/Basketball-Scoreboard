@@ -3,34 +3,33 @@ let guestCount = document.getElementById("guest-count");
 let home = 0;
 let guest = 0;
 
-function onePointHome() {
-  home += 1;
+function PointHome(point) {
+  home += point;
   homeCount.innerText = home;
+  changeBackground();
 }
 
-function twoPointHome() {
-  home += 2;
-  homeCount.innerText = home;
-}
-
-function threePointHome() {
-  home += 3;
-  homeCount.innerText = home;
-}
-
-function onePointGuest() {
-  guest += 1;
+function PointGuest(point) {
+  guest += point;
   guestCount.innerText = guest;
+  changeBackground();
 }
 
-function twoPointGuest() {
-  guest += 2;
-  guestCount.innerText = guest;
-}
-
-function threePointGuest() {
-  guest += 3;
-  guestCount.innerText = guest;
+function changeBackground(){
+  if(home>guest)
+  {
+    document.getElementById("box1").style.backgroundColor = "green"; 
+    document.getElementById("box2").style.backgroundColor = "red"; 
+  }
+  else if(home===guest)
+  {
+    document.getElementById("box1").style.backgroundColor = "orange"; 
+    document.getElementById("box2").style.backgroundColor = "orange"; 
+  }
+  else{
+    document.getElementById("box2").style.backgroundColor = "green"; 
+    document.getElementById("box1").style.backgroundColor = "red";
+  }
 }
 
 function reset() {
